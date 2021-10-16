@@ -1,0 +1,21 @@
+                //Test-server
+    //with pumkins
+"ROOM_SETUP": [
+    ["norm", "norm", "norm", "roid", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "roid", "nest", "roid", "norm", "norm"],
+    ["roid", "norm", "nest", "nest", "nest", "norm", "roid"],
+    ["norm", "norm", "roid", "nest", "roid", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "roid", "norm", "norm", "norm"]
+  ],
+  //without pumkins
+   "ROOM_SETUP": [
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "nest", "norm", "norm", "norm"],
+    ["norm", "norm", "nest", "nest", "nest", "norm", "norm"],
+    ["norm", "norm", "norm", "nest", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm"]
+  ],
