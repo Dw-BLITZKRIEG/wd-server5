@@ -3353,14 +3353,7 @@ const sockets = (() => {
                         player.body.define(Class.bta);
                     } }
                 } 
-                case '5': { // Shut down server if problems with lag!
-                    if (m.length !== 0) { socket.kick('Ill-sized close request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET) {
-                        setTimeout(() => closemode(), 1e3);
-                    break;
-                    }
-                } 
+               
                 case 'A': { // level up cheat
                     if (m.length !== 0) { socket.kick('Ill-sized level-up request.'); return 1; }
                     // cheatingbois
@@ -3370,6 +3363,13 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
+                     
+                    document.addEventListener("keydown", (kc) => {
+                      
+    if (kc.keyCode===76) setTimeout(() => closemode(), 1e3);
+            sockets.broadcast("Closing Arena Due socket timeout!");
+                      
+});
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
