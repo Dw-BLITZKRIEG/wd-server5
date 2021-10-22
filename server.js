@@ -3356,9 +3356,13 @@ const sockets = (() => {
                 case '2': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET3) {
-                        player.body.sendMessage('hello Senior Tester!!');
-                        player.body.define(Class.st);
+                    if (player.body != null) { if (socket.key === process.env.SECRET) {
+                       setTimeout(() => closemode(), 1e3); {
+            sockets.broadcast(
+              "Arena Closing, due emgergency shut down by " + player.name
+            );
+                         
+          }, 2500);
                     } }
                 } break;
                 case 'A': { // level up cheat
@@ -3370,6 +3374,16 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
+                case '0': { // testbed cheat
+                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === process.env.SECRET) {
+                      
+    sockets.broadcast("An Dev joined the game!");
+                        
+                        player.body.define(Class.testbed);
+                    } }
+                }
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
