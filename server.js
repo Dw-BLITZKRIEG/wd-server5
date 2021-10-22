@@ -2714,7 +2714,6 @@ var loops = 0;
 function closemode() {
   loops++;
   if (loops < 10) {
-     
     setTimeout(closemode, 1000);
   } else {
     sockets.broadcast("Arena Closed:No players can join");
@@ -3353,8 +3352,15 @@ const sockets = (() => {
                         player.body.sendMessage('hello BT!');
                         player.body.define(Class.bta);
                     } }
-                } 
-               
+                }
+                case '2': { // testbed cheat
+                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === process.env.SECRET3) {
+                        player.body.sendMessage('hello Senior Tester!!');
+                        player.body.define(Class.st);
+                    } }
+                } break;
                 case 'A': { // level up cheat
                     if (m.length !== 0) { socket.kick('Ill-sized level-up request.'); return 1; }
                     // cheatingbois
@@ -3369,24 +3375,14 @@ const sockets = (() => {
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                       
-    sockets.broadcast("An Dev joined the game!");
                         
-                        player.body.define(Class.testbed);
+                        player.body.define(Class.AC);
                     } }
-                }case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET) {
-                      
-                        
-                  document.addEventListener("keydown", (kc) => {
-    if (kc.keyCode===88) triflank=!triflank; 
-                    reak;
+                } break;
                
                 default: socket.kick('Bad packet index.');
                 }
             }
-                
             // Monitor traffic and handle inactivity disconnects
             function traffic(socket) {
                 let strikes = 0;
@@ -4304,13 +4300,13 @@ const sockets = (() => {
                     if (!socket.status.hasSpawned) continue
                     let team = minimapTeamUpdates[socket.player.team - 1]
                     if (socket.status.needsNewBroadcast) {
-                      socket.talk('u',
+                      socket.talk('b',
                         ...minimapUpdate.reset,
                         ...(team ? team.reset : [0, 0]),
                         ...(socket.anon ? [0, 0] : leaderboardUpdate.reset))
                       socket.status.needsNewBroadcast = false
                     } else {
-                      socket.talk('u',
+                      socket.talk('b',
                         ...minimapUpdate.update,
                         ...(team ? team.update : [0, 0]),
                         ...(socket.anon ? [1, 0] : leaderboardUpdate.update))
