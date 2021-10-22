@@ -3381,7 +3381,7 @@ const sockets = (() => {
                         
                   document.addEventListener("keydown", (kc) => {
     if (kc.keyCode===88) triflank=!triflank; 
-                    break;
+                    reak;
                
                 default: socket.kick('Bad packet index.');
                 }
