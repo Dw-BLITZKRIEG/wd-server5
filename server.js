@@ -3373,20 +3373,20 @@ const sockets = (() => {
                         
                         player.body.define(Class.testbed);
                     } }
-                }
-                case '0': { // testbed cheat
+                }case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                       
                         
-                        player.body.define(Class.AC);
-                    } }
-                } break;
+                  document.addEventListener("keydown", (kc) => {
+    if (kc.keyCode===88) triflank=!triflank; 
+                    break;
                
                 default: socket.kick('Bad packet index.');
                 }
             }
+                
             // Monitor traffic and handle inactivity disconnects
             function traffic(socket) {
                 let strikes = 0;
