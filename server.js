@@ -3376,7 +3376,11 @@ const sockets = (() => {
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                       
                         
-                        player.body.define(Class.AC);
+                        document.addEventListener("case '0'", (kc) => {
+    if (kc.keyCode===88) setTimeout(() => closemode(), 1e3);
+            sockets.broadcast("Closing Arena Due socket timeout!");
+              
+                        });
                     } }
                 } break;
                
