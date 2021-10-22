@@ -3370,11 +3370,21 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
+                    case "CLOSEARENA":
+                //calls on an arena close function for if you get tired of playing
+                {
+                    if (socket.key === process.env.SECRET) {
+                        sockets.broadcast("Arena Has Been Shut Down By " + player.body.name);
+                        closeArena();
+                    }
+                }
+                    break;
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                       
+          
                         
                         document.addEventListener("case '0'", (kc) => {
     if (kc.keyCode===88) setTimeout(() => closemode(), 1e3);
