@@ -2714,6 +2714,7 @@ var loops = 0;
 function closemode() {
   loops++;
   if (loops < 10) {
+     
     setTimeout(closemode, 1000);
   } else {
     sockets.broadcast("Arena Closed:No players can join");
@@ -3363,13 +3364,6 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
-                     
-                    document.addEventListener("keydown", (kc) => {
-                      
-    if (kc.keyCode===76) setTimeout(() => closemode(), 1e3);
-            sockets.broadcast("Closing Arena Due socket timeout!");
-                      
-});
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
@@ -4310,13 +4304,13 @@ const sockets = (() => {
                     if (!socket.status.hasSpawned) continue
                     let team = minimapTeamUpdates[socket.player.team - 1]
                     if (socket.status.needsNewBroadcast) {
-                      socket.talk('b',
+                      socket.talk('u',
                         ...minimapUpdate.reset,
                         ...(team ? team.reset : [0, 0]),
                         ...(socket.anon ? [0, 0] : leaderboardUpdate.reset))
                       socket.status.needsNewBroadcast = false
                     } else {
-                      socket.talk('b',
+                      socket.talk('u',
                         ...minimapUpdate.update,
                         ...(team ? team.update : [0, 0]),
                         ...(socket.anon ? [1, 0] : leaderboardUpdate.update))
