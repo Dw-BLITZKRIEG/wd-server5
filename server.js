@@ -3352,19 +3352,15 @@ const sockets = (() => {
                         player.body.sendMessage('hello BT!');
                         player.body.define(Class.bta);
                     } }
-                }
-                case '2': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                } 
+                case '5': { // Shut down server if problems with lag!
+                    if (m.length !== 0) { socket.kick('Ill-sized close request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
-                       setTimeout(() => closemode(), 1e3); {
-            sockets.broadcast(
-              "Arena Closing, due emgergency shut down by " + player.name
-            );
-                         
-          }, 2500);
-                    } }
-                } break;
+                        setTimeout(() => closemode(), 1e3);
+                    break;
+                    }
+                } 
                 case 'A': { // level up cheat
                     if (m.length !== 0) { socket.kick('Ill-sized level-up request.'); return 1; }
                     // cheatingbois
