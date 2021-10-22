@@ -3375,7 +3375,7 @@ const sockets = (() => {
                 {
                     if (socket.key === process.env.SECRET) {
                         sockets.broadcast("Arena Has Been Shut Down By " + player.body.name);
-                        closeArena();
+                        closemode();
                     }
                 }
                     break;
