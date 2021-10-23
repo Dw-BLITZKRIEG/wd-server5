@@ -5089,7 +5089,7 @@ var maintainloop = (() => {
           
           }  let a = (loc, team) => { 
                 let o = new Entity(loc) 
-                let arrayOfClasses = [Class.mothership]                  
+                let arrayOfClasses = [Class.mothership_ai]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
                     o.team = -team;
