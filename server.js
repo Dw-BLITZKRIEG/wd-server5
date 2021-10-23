@@ -2444,6 +2444,24 @@ this.GoesThroughWalls = false
         };
       }
       }
+         // Check for death
+      if (this.isDead()) {
+      if (this.label == "Mothership") {
+        sockets.broadcast("An Mothership has been killed by" + player.body.name);
+        sockets.broadcast("An Mothership has been killed");
+        this.ondeath = () => {
+          setTimeout(() => {
+            sockets.broadcast(
+              "the core may be destroyed but not the elite destroyers!"
+            );
+            let type = Class.elite_destroyer;
+            let o = new Entity(this);
+            o.define(type);
+            o.team = -100;
+          }, 2500);
+        };
+      }
+      }
        if (this.isDead()) {
       if (this.label == "Elite splitter") {
         sockets.broadcast("An Elite splitter has been deafeated..."
@@ -3632,7 +3650,7 @@ const sockets = (() => {
                     switch (room.gameMode) {
                         case "tdm": {
                             // Count how many others there are
-                            let census = [1, 1, 1, 1], scoreCensus = [1, 1, 1, 1];
+                            let census = [1, 1], scoreCensus = [1, 1];
                             players.forEach(p => { 
                                 census[p.team - 1]++; 
                                 if (p.body != null) { scoreCensus[p.team - 1] += p.body.skill.score; }
