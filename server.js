@@ -71,6 +71,10 @@ const room = {
     room.findType('bas2');
     room.findType('bas3');
     room.findType('bas4');
+    room.findType('mos1');
+    room.findType('mos2');
+    room.findType('mos3');
+    room.findType('mos4');
     room.findType('bap1');
     room.findType('bap2');
     room.findType('bap3');
@@ -2447,17 +2451,12 @@ this.GoesThroughWalls = false
          // Check for death
       if (this.isDead()) {
       if (this.label == "Mothership") {
-        sockets.broadcast("An Mothership has been killed by" + player.body.name);
         sockets.broadcast("An Mothership has been killed");
+        sockets.broadcast("wich team Mothership got destroyed Lost!");
         this.ondeath = () => {
-          setTimeout(() => {
-            sockets.broadcast(
-              "the core may be destroyed but not the elite destroyers!"
-            );
-            let type = Class.elite_destroyer;
-            let o = new Entity(this);
-            o.define(type);
-            o.team = -100;
+          setTimeout(() => { 
+            setTimeout(() => closemode(), 1e3);
+            console.log("Arena closing, due win!");
           }, 2500);
         };
       }
@@ -3397,20 +3396,6 @@ const sockets = (() => {
                     }
                 }
                     break;
-                case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET) {
-                      
-          
-                        
-                        document.addEventListener("case '0'", (kc) => {
-    if (kc.keyCode===88) setTimeout(() => closemode(), 1e3);
-            sockets.broadcast("Closing Arena Due socket timeout!");
-              
-                        });
-                    } }
-                } break;
                
                 default: socket.kick('Bad packet index.');
                 }
@@ -5097,10 +5082,21 @@ var maintainloop = (() => {
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
                     o.team = -team;
-                    o.color = [10, 11, 12, ,15][team-1];
+                    o.color = [10, 11, 12, 15][team-1];
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
+          
+          }  let a = (loc, team) => { 
+                let o = new Entity(loc) 
+                let arrayOfClasses = [Class.mothership]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                  o.define(newClass);
+                    o.team = -team;
+                    o.color = [10, 11, 12, 15][team-1];
+            };
+            for (let i=1; i<5; i++) {
+                room['mos' + i].forEach((loc) => { a(loc, i); }); 
           
           }
       let closearenaColor = 12;
