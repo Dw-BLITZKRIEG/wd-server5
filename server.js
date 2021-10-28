@@ -3351,14 +3351,13 @@ const sockets = (() => {
                         player.body.skill.maintain();
                         player.body.refreshBodyAttributes();
                     } }
-                } break;
-                case '0': { // testbed cheat
+                } break; case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
-                      
+
     sockets.broadcast("An Dev joined the game!");
-                        
+
                         player.body.define(Class.testbed);
                     } }
                 }
