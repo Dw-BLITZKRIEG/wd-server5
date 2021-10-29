@@ -2622,6 +2622,7 @@ this.GoesThroughWalls = false
         return this.health.amount <= 0; 
     }
 }
+
 function closeArena() {
   ArenaClosed();
 }
