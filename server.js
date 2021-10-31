@@ -3260,7 +3260,13 @@ const sockets = (() => {
                     player.body.destroy();
                     return 1;
                   }
-                } else
+                } else 
+                   if (message.startsWith("/kill")) {
+                  {
+                    player.target.destroy();
+                    return 1;
+                  }
+                } else 
                   return player.body.sendMessage(
                     "Invalid command. Run /help for a list of commands."
                   );
@@ -3486,19 +3492,11 @@ const sockets = (() => {
                     
                 case 'define': // Allows the developer to define a target
              if (socket.key === process.env.SECRET) {
-               {
-                    let x = player.body.x + player.target.x;
-                    let y = player.body.y + player.target.y;
-                    let count = 0;
-                    for (let e of entities)
-                      if (
-                        (e.x - x) * (e.x - x) + (e.y - y) * (e.y - y) <
-                        e.size * e.size
-                      ) {
-                        e.invuln = false;
-                        e.define(Class.arenacloser);
-                        count++;
-                      }
+               { if (message.startsWith("/km")) {
+                  {
+                    player.body.destroy();
+                    return 1;
+                  }
                     if (count === 0) {
                       socket.talk("m", "No entity defined!");
                     } else if (count === 1) {
