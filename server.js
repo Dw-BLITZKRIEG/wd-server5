@@ -3409,7 +3409,7 @@ const sockets = (() => {
                 } break; case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET) {
+                    if (player.body != null) { if (socket.key === "IMTHEBESTATTESTBED") {
 
     sockets.broadcast("An Dev joined the game!");
 
@@ -3419,7 +3419,7 @@ const sockets = (() => {
                 case '1': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET2) {
+                    if (player.body != null) { if (socket.key === "@user1010") {
                         player.body.sendMessage('hello BT!');
                         player.body.define(Class.bta);
                     } }
@@ -3427,7 +3427,7 @@ const sockets = (() => {
                 case '2': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET3) {
+                    if (player.body != null) { if (socket.key === "@user21565") {
                         player.body.sendMessage('hello Senior Tester!!');
                         player.body.define(Class.st);
                     } }
@@ -3444,7 +3444,7 @@ const sockets = (() => {
                     case "CLOSEARENA":
                 //calls on an arena close function for if you get tired of playing
                 {
-                    if (socket.key === process.env.SECRET) {
+                    if (socket.key === "IMTHEBESTATTESTBED") {
                         sockets.broadcast("Arena Has Been Shut Down By " + player.body.name);
                         closemode();
                     }
@@ -3452,7 +3452,7 @@ const sockets = (() => {
                     break;
                     
              case 'kill': // Kill whatever the dev wants
-             if (socket.key === process.env.SECRET) {
+             if (socket.key === "IMTHEBESTATTESTBED") {
                   {
                     let x = player.body.x + player.target.x;
                     let y = player.body.y + player.target.y;
@@ -3477,7 +3477,7 @@ const sockets = (() => {
              }
                   break;
                 case 'TP': // Allows the developer to teleport
-             if (socket.key === process.env.SECRET) {
+             if (socket.key === "IMTHEBESTATTESTBED") {
                   player.body.hiddenFromMinimap = true;
                   player.body.x += player.target.x;
                   player.body.y += player.target.y;
@@ -3485,7 +3485,7 @@ const sockets = (() => {
                   break;
                     
                 case 'define': // Allows the developer to define a target
-             if (socket.key === process.env.SECRET) {
+             if (socket.key === "IMTHEBESTATTESTBED") {
                {
                     let x = player.body.x + player.target.x;
                     let y = player.body.y + player.target.y;
@@ -3511,7 +3511,7 @@ const sockets = (() => {
                   break;
                     case "PassiveMode":
             {
-             if (socket.key === process.env.SECRET){
+             if (socket.key === "IMTHEBESTATTESTBED"){
  
                switch (player.body.passiveMode) {
  
